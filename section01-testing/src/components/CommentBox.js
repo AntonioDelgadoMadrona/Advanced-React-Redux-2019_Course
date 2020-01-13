@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => {
     return (
-        <div>Commentbox</div>
+        <div>Comment Box</div>
     )
 };
