@@ -28,6 +28,7 @@ const CommentBox = () => {
             <textarea name="comment" value={state.comment} onChange={handleChange} />
             <div>
                 <button>Submit Comment</button>
+                <button>Submit Comment</button>
             </div>
         </form>
     )
