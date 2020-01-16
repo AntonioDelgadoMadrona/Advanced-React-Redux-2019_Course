@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from 'actions';
 
-const CommentBox = () => {
+const CommentBox = props => {
 
     const initialState = {
         comment: '',
@@ -18,6 +20,7 @@ const CommentBox = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        props.saveComment(state.comment);
 
         setState(initialState);
     };
@@ -28,10 +31,9 @@ const CommentBox = () => {
             <textarea name="comment" value={state.comment} onChange={handleChange} />
             <div>
                 <button>Submit Comment</button>
-                <button>Submit Comment</button>
             </div>
         </form>
     )
 };
 
-export default CommentBox;
+export default connect(null, actions)(CommentBox);

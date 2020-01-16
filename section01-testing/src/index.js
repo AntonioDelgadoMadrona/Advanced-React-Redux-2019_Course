@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// DEFINE IN ROOT.js
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
+// import reducers from 'reducers';
+
+import Root from 'Root';
+
 import App from 'components/App';
 
 ReactDOM.render(
-    <App />,
+    <Root>
+        <App />
+    </Root>,
     document.querySelector('#root')
 );

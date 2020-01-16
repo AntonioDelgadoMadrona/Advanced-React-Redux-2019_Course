@@ -2,12 +2,17 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 let wrapped;
 
 // FOR TO HAVE THE COMPONENT MOUNTED
 beforeEach(() => {
-    wrapped = mount(<CommentBox />)
+    wrapped = mount(
+        <Root>
+            <CommentBox />
+        </Root>
+    )
 });
 
 // UNMOUNT THE COMPONENT AFTER EVERY TEST
@@ -22,7 +27,7 @@ it('has a text area', () => {
     // console.log(wrapped.find('button').length);
 
     expect(wrapped.find('textarea').length).toEqual(1); // CHECK IF THE COMPONENT HAS 1 TEXTAREA
-    expect(wrapped.find('button').length).toEqual(2);   // CHECK IF THE COMPONENT HAS 2 BUTTONS
+    expect(wrapped.find('button').length).toEqual(1);   // CHECK IF THE COMPONENT HAS 2 BUTTONS
 });
 
 describe('the text area', () => {   // THE DESCRIBE IS FOR NEST SOME TESTS WITH COMMON FUNCTIONS
