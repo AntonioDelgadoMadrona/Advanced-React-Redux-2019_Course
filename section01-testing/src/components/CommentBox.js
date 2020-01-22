@@ -26,13 +26,16 @@ const CommentBox = props => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h4>Add a Comment</h4>
-            <textarea name="comment" value={state.comment} onChange={handleChange} />
-            <div>
-                <button>Submit Comment</button>
-            </div>
-        </form>
+        <React.Fragment>
+            <form onSubmit={handleSubmit}>
+                <h4>Add a Comment</h4>
+                <textarea name="comment" value={state.comment} onChange={handleChange} />
+                <div>
+                    <button>Submit Comment</button>
+                </div>
+            </form>
+            <button onClick={actions.fetchComments}>Fetch Comments</button>
+        </React.Fragment>
     )
 };
 

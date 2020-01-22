@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 const CommentList = props => {
 
+    console.log(props.comments);
+
     const renderComments = () => {
         return props.comments.map(comment => {
             return <li key={comment}>{comment}</li>
