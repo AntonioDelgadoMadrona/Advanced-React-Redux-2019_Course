@@ -34,7 +34,7 @@ const CommentBox = props => {
                     <button>Submit Comment</button>
                 </div>
             </form>
-            <button onClick={actions.fetchComments}>Fetch Comments</button>
+            <button className="fetch-comments" onClick={actions.fetchComments}>Fetch Comments</button>
         </React.Fragment>
     )
 };
