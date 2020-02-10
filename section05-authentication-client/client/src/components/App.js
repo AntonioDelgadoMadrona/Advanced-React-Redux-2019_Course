@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from './Header';
 
-export default () => {
+export default props => {
     return (
         <div>
             <Header />
-            Hi, I´m in the app
+            {props.children}
         </div>
     )
 };
