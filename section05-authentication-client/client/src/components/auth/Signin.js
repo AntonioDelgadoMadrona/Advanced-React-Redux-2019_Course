@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { compose } from 'redux';
 
-const Signup = props => {
+const Signin = props => {
 
-    const { handleSubmit, signup, errorMessage } = props;
+    const { handleSubmit, signin, errorMessage } = props;
 
     const onSubmit = formProps => {
-        signup(formProps, () => {
+        signin(formProps, () => {
             props.history.push('/feature');
         });
     };
@@ -35,7 +35,7 @@ const Signup = props => {
                 />
             </fieldset>
             <div>{errorMessage}</div>
-            <button type="submit">Sign Up!</button>
+            <button type="submit">Sign In!</button>
         </form>
     )
 };
@@ -48,5 +48,5 @@ const mapStateToProps = state => {
 
 export default compose(
     connect(mapStateToProps, actions),
-    reduxForm({ form: 'signup' })
-)(Signup);
+    reduxForm({ form: 'signin' })
+)(Signin);
