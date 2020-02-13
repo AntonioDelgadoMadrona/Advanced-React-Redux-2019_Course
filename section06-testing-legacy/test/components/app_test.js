@@ -3,18 +3,19 @@ import App from '../../src/components/app';
 
 // USE DESCRIBE TO GROUOP TOGETHER SIMILAR TESTS
 describe('App', () => {
+
   let component;
 
   beforeEach(() => {
     component = renderComponent(App);
   });
 
-  // USE "it" TO TEST A SINGLE ATTRIBUTE OF A TARGET
-  it('renders something', () => {
+  it('shows a comment box', () => {
+    expect(component.find('.comment-box')).to.exist;
+  });
 
-    // USE 'expect' TO MAKE AN "assertion" about a target
-    expect(component).to.exist;
-
+  it('shows a comment list', () => {
+    expect(component.find('.comment-list')).to.exist;
   });
 
 });
