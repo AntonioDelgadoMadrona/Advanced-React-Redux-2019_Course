@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
@@ -13,10 +13,17 @@ import Feature from './components/Feature';
 import Signout from './components/auth/Signout';
 import Signin from './components/auth/Signin';
 
+// In development, use the browser's Redux dev tools extension if installed
+const enhancers = [];
+const isDevelopment = process.env.NODE_ENV === 'development';
+if (isDevelopment && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+    enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
+}
+
 const store = createStore(
     reducers,
     { auth: { authenticated: localStorage.getItem('token') } },
-    applyMiddleware(reduxThunk)
+    compose(applyMiddleware(reduxThunk), ...enhancers)
 );
 
 ReactDOM.render(
