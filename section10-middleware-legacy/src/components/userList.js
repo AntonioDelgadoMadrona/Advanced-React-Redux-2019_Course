@@ -5,11 +5,6 @@ import * as actions from '../actions/index';
 const userList = () => {
 
     useEffect(() => {
-        const users = [
-            { name: 'Toni' },
-            { name: 'Michel' },
-            { name: 'Juan' },
-        ];
         props.fetchUser(users);
     }, []);
 
@@ -17,8 +12,8 @@ const userList = () => {
         return (
             <div className="card card-block">
                 <h4 className="card-title">{user.name}</h4>
-                <p className="card-text">Cheese Factory</p>
-                <a className="btn btn-primary">Email</a>
+                <p className="card-text">{user.company.name}</p>
+                <a className="btn btn-primary" href={user.website} >Website</a>
             </div>
         )
     };
